@@ -1,0 +1,5 @@
+Python you can:
+- search for files in directories
+- opening files
+- launching third-party programs
+- the ability to perform calculations by redirecting them to different threads, etc.
