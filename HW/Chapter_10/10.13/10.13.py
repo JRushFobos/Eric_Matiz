@@ -18,7 +18,7 @@ def get_new_username():
     '''Запрашивает новое имя пользователя'''
     username = input('What is your name?')
     filename = 'usenname.json'
-    with open (filename,'w') as f:
+    with open (filename,'w') as f:  
         json.dump(username,f)
     return username
     
