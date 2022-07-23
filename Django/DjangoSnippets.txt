@@ -1,0 +1,34 @@
+1. Создание вертуальной среды
+virtualenv ll_env
+2. Активация виртуальной среды
+ll_env\scripts\activate // ll_env\scripts\deactivate
+3. Установка Django
+pip install django
+4. Создание проекта Django
+django-admin.exe startproject learning_log .
+5. Создание базы данных БД
+python manage.py migrate создается db.sqlite3
+6. Запуск проекта python manage.py runserver
+python manage.py runserver
+7. Старт приложения в отдельном окне CMD
+python manage.py startapp learning_logs
+8. Определение моделей в файле models
+Например class Topic в models
+9. Активация моделей
+Прописать папку запущенного приложения (learning_logs)
+в файл setting.py в INSTALLED_APPS = () первым
+10. Привязать базу данных БД к приложению
+python manage.py makemigrations learning_logs
+- Create model Topic
+11. Обновление базы данных БД для внедрения Topic
+python manage.py migrate
+Applying learning_logs.0001_initial... OK
+12. Создание SuperAdmin для сайта
+python manage.py createsuperuser
+Username: указывает ll_admin
+Password: укавывем пароль
+13. Добавление тем в модели через localhost:8000\admin
+14. Определение модели Entry в models.py
+Назначение связей в моделях, один к одному, один к многим и тд.
+15. Миграция модели Entry
+python manage.py makemigrations learning_logs
