@@ -32,3 +32,6 @@ Password: укавывем пароль
 Назначение связей в моделях, один к одному, один к многим и тд.
 15. Миграция модели Entry
 python manage.py makemigrations learning_logs
+-Create model Entry
+python manage.py migrate
+-Applying learning_logs.0002_initial... OK
