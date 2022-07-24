@@ -1,38 +1,48 @@
 1. Создание вертуальной среды
-virtualenv ll_env
+	python -m virtualenv ll_env
 2. Активация виртуальной среды
-ll_env\scripts\activate // ll_env\scripts\deactivate
+	ll_env\scripts\activate	// 	ll_env\scripts\deactivate	
 3. Установка Django
-pip install django
-4. Создание проекта Django
-django-admin.exe startproject learning_log .
+	pip install django
+4. Создание проекта Django 
+	django-admin.exe startproject learning_log . 
+	(путь к django-admin.exe)
 5. Создание базы данных БД
-python manage.py migrate создается db.sqlite3
+	python manage.py migrate	создается db.sqlite3
 6. Запуск проекта python manage.py runserver
-python manage.py runserver
+	python manage.py runserver
 7. Старт приложения в отдельном окне CMD
-python manage.py startapp learning_logs
-8. Определение моделей в файле models
-Например class Topic в models
-9. Активация моделей
-Прописать папку запущенного приложения (learning_logs)
-в файл setting.py в INSTALLED_APPS = () первым
+	python manage.py startapp learning_logs
+8. Определение моделей в файле models 
+	Например class Topic в models
+9. Активация моделей 
+	Прописать папку запущенного приложения (learning_logs)
+	в файл setting.py в INSTALLED_APPS = () первым
 10. Привязать базу данных БД к приложению
-python manage.py makemigrations learning_logs
-- Create model Topic
+	python manage.py makemigrations learning_logs
+	- Create model Topic
 11. Обновление базы данных БД для внедрения Topic
-python manage.py migrate
-Applying learning_logs.0001_initial... OK
+	python manage.py migrate
+	Applying learning_logs.0001_initial... OK
 12. Создание SuperAdmin для сайта
-python manage.py createsuperuser
-Username: указывает ll_admin
-Password: укавывем пароль
+	a) python manage.py createsuperuser
+	Username: указывает ll_admin
+	Password: укавывем пароль
+	b) Регистрация моделей на административном сайте
+	admin.py > from.models import Topic
+	admin.site.register(Topic)
 13. Добавление тем в модели через localhost:8000\admin
 14. Определение модели Entry в models.py
-Назначение связей в моделях, один к одному, один к многим и тд.
+	Назначение связей в моделях, один к одному, один к многим и тд.
 15. Миграция модели Entry
-python manage.py makemigrations learning_logs
--Create model Entry
-python manage.py migrate
--Applying learning_logs.0002_initial... OK
--
+	python manage.py makemigrations learning_logs
+	-Create model Entry
+	python manage.py migrate
+	-Applying learning_logs.0002_initial... OK
+16. Интерактивная оболочка shell
+	для тестирования и деагностики
+	python manage.py Shell
+	Вывод Topics 
+	>>>from learning_logs.models import Topic
+	>>>Topic.objects.all()
+
