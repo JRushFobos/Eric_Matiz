@@ -41,7 +41,7 @@
 	-Applying learning_logs.0002_initial... OK
 16. Интерактивная оболочка shell
 	для тестирования и деагностики
-	python manage.py Shell
+	python manage.py shell
 	Вывод Topics 
 	>>>from learning_logs.models import Topic
 	>>>Topic.objects.all()
