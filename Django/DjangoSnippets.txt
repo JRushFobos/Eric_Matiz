@@ -45,4 +45,36 @@
 	Вывод Topics 
 	>>>from learning_logs.models import Topic
 	>>>Topic.objects.all()
+17. Создание страниц: домашняя
+	Сопоставление URL
+
+	urls.py #learning_log.url
+		from django.contrib import admin
+		from django.urls import path, include #добавили
+
+	urlpatterns =[
+		path('admin/',admin.site.urls),
+		path('',include('learning_logs.urls')), #добавили
+	]
+	
+	urls.py #learning_logs.url
+		from django.urls import path
+		from . import views
+
+		app_name = 'learning_logs'
+		urlpatterns = [
+			#домашняя страница
+			path ('', views.index,name='index')]
+18. Написание представления views
+	views.py
+		from django.shortcuts import render
+
+		def index(request):
+			return render (request, 'learning_log/index.html')
+19. Создание шаблона 
+	В папке приложения learning_logs создаем templates
+	в нем learning_logs
+	learning_log/learning_logs/templates/learning_logs/index.html
+	Шаблон в VS code + auto Close tag + auto Copmlete tag
+	shift + 1 + Tab
 
