@@ -57,7 +57,7 @@
 		path('',include('learning_logs.urls')), #добавили
 	]
 	
-	urls.py #learning_logs.url
+	urls.py #Создать в learning_logs
 		from django.urls import path
 		from . import views
 
@@ -65,7 +65,7 @@
 		urlpatterns = [
 			#домашняя страница
 			path ('', views.index,name='index')]
-18. Написание представления views
+18. Написание представления views приложения в проекте
 	views.py
 		from django.shortcuts import render
 
@@ -77,4 +77,14 @@
 	learning_log/learning_logs/templates/learning_logs/index.html
 	Шаблон в VS code + auto Close tag + auto Copmlete tag
 	shift + 1 + Tab
+20. Наследование шаблонов для других страниц
+	В папке learning_log/learning_logs/templates/learning_logs/
+	рядом с файлом index.html 
+	создаем файл base.html
+	C текстом-ссылкой 
+	<p> 
+	  <a href="{% url 'learning_log:index' %}"> Learning Log </a>
+	</p>
+	И блокирующим тегом для передачи информации из дочерних шаблонов
+	{% block content %}{% endblock content %}
 
