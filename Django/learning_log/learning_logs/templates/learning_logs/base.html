@@ -1,5 +1,11 @@
+<!--
+    Текст и ссылка на Learning Logs
+-->
 <p>
-    <a href = "{% url 'learning_logs:index' % }">Learning Log </a>
+    <a href = "{% url 'leaning_logs:index' %}">Learning Log </a> -
+    <a href = "{% url 'leaning_logs:topics' %}">Topics </a>
 </p>
-
+<!--
+    Все что ниже блока определяется дочерними шаблонами
+-->
 {% block content %}{% endblock content %}

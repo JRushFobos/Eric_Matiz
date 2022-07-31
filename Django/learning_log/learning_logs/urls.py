@@ -5,5 +5,7 @@ from . import views
 app_name = 'leaning_logs'
 urlpatterns = [
     #Домашняя страница
-    path ('',vews.index, name='index')
+    path ('',views.index, name='index'),
+    #Страница со списком всех тем
+    path ('topics/', views.topics,name='topics')
 ]

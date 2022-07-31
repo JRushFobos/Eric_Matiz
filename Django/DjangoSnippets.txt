@@ -112,4 +112,19 @@
     	topics = Topic.objects.order_by('date_added')
    	 	context = {'topics':topics}
     	return render(request, 'learning_logs/topics.html', template_name)
-]
+	]
+23. Шаблон topics.html
+	{% extends "learning_logs/base.html" %} <!-- шаблон наследуется из base
+
+ 	{% block content %}
+	<p>Topics</p>
+
+	<ul>							<!-- обьявление неупорядоченный список - bulleted
+      {% for topic in topics %}		<!-- начала цикла
+        <li>{{ topic }}</li>		<!-- вывод значений цикла в {{}}
+      {% empty %}					<!-- исключение если тем нету
+        <li>No topics have been added yet.</li> 		<!-- текстовка для исключения
+      {% endfor %}					<!-- конец цикла
+    </ul>
+
+	{% endblock content %}
