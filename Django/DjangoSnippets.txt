@@ -77,7 +77,7 @@
 	learning_log/learning_logs/templates/learning_logs/index.html
 	Шаблон в VS code + auto Close tag + auto Copmlete tag
 	shift + 1 + Tab
-20. Наследование шаблонов для других страниц
+20. Наследование шаблонов для других страниц. Родительский шаблон base.html
 	В папке learning_log/learning_logs/templates/learning_logs/
 	рядом с файлом index.html 
 	создаем файл base.html
@@ -87,4 +87,29 @@
 	</p>
 	И блокирующим тегом для передачи информации из дочерних шаблонов
 	{% block content %}{% endblock content %}
+20. Наследование шаблонов для других страниц. Дочерний шаблон index.html
+	<!--Заменили заголовок на код родительского наблона -  текст/ссылка из base-->
+	{% extends "learning_logs/base.html" %}
 
+	{% block content %}
+  	  <p>Learning Log helps you keep track of your learning, for any topic you're learning about.</p>>
+	{% endblock content%}
+21. Новая схема темы, добавляем http://localhost:8000/topics
+	Добавляем схему в urls.py в learning_logs
+	app_name = 'leaning_logs'
+	urlpatterns = [
+    #Домашняя страница
+    path ('',vews.index, name='index'),
+    path ('topics/', views.topics,name='topics')
+	]
+22. Представления Topics в файле view.py
+	#Добавляем импорт модели
+	from .models import Topic
+
+	#Добавляем функцию собирающую данные в базе и передающую в шаблон
+	def topics (request):
+    	#Выводим список тем
+    	topics = Topic.objects.order_by('date_added')
+   	 	context = {'topics':topics}
+    	return render(request, 'learning_logs/topics.html', template_name)
+]
