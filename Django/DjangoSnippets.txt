@@ -127,5 +127,9 @@
       {% endfor %}					<!-- конец цикла
     </ul>
 
+<<<<<<< HEAD
 	{% endblock content %}
 24.  
+=======
+	{% endblock content %}
+>>>>>>> 201ab06633c86b0e9c3be035179a117a3b0b8c31  
