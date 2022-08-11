@@ -130,6 +130,23 @@
 	{% endblock content %}
 	Затем добавить в базовый шаблон base.html  страницу с темами
 	<p> 
-	  <a href="{% url 'learning_log:index' %}"> Learning Log </a>
+	  <a href="{% url 'learning_log:index' %}"> Learning Log </a> - <!--добавили дефис
 	  <a href="{% url 'learning_log:index' %}"> Topics </a>
 	</p>
+-----Check----
+24. Схемы для тем с Id (отдельные темы)
+		например http://localhost/topics/1/
+		Добаваить  в urls.py
+		urlpatterns = [
+			#Страница с подробной ипформацией по отдельной теме
+			path('topics/<int:topic_id>/',views.topic,name='toppic'),
+		]
+25. Представление для темы с id (отделной темы)
+	def topic из view.py должна получить тему и записи из базы
+	def topic(request, topic_id):                             #еще один параметр
+    '''Вывод отну тему и все записи по ней'''
+    topic = Topic.objects.get(id=topic_id)									#get для получаения темы
+    entries = topic.entry_set_order_by('-date_added')				#загружаем записи в обр порядке
+    context = {'topic':topic,'entries':entries}						  #тема и записи сохр в list context
+    return render (request,'learning_logs/topic.html', context) #list context передается в topic.html
+

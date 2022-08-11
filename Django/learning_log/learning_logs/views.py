@@ -12,7 +12,7 @@ def topics(request):
     return render(request, 'learning_logs/topics.html', context)
 
 def topic(request, topic_id):
-    '''Вывод отну тему и все записи по ней'''
+    '''Вывод одну тему и все записи по ней'''
     topic = Topic.objects.get(id=topic_id)
     entries = topic.entry_set_order_by('-date_added')
     context = {'topic':topic,'entries':entries}
