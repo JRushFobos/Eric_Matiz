@@ -121,15 +121,15 @@
 
 	<ul>							<!-- объявление неупорядоченный список - bulleted
       {% for topic in topics %}		<!-- начала цикла
-        <li>{{ topic }}</li>		<!-- вывод значений цикла в {{}} | <li> </li> элемент 																																				списка
-      {% empty %}					<!-- исключение если тем нету
-        <li>No topics have been added yet.</li> 		<!-- текстовка для исключения
-      {% endfor %}					<!-- конец цикла
+        <li>{{ topic }}</li>			<!-- вывод значений цикла в {{}} | <li> </li> элемент 																																				списка
+      {% empty %}																	<!-- исключение если тем нету
+        <li>No topics have been added yet.</li> 	<!-- текстовка для исключения
+      {% endfor %}																<!-- конец цикла
     </ul>
 
-<<<<<<< HEAD
 	{% endblock content %}
-24.  
-=======
-	{% endblock content %}
->>>>>>> 201ab06633c86b0e9c3be035179a117a3b0b8c31  
+	Затем добавить в базовый шаблон base.html  страницу с темами
+	<p> 
+	  <a href="{% url 'learning_log:index' %}"> Learning Log </a>
+	  <a href="{% url 'learning_log:index' %}"> Topics </a>
+	</p>
