@@ -1,0 +1,19 @@
+{% extends "pizzas/base.html" %} <!-- шаблон наследуется из base -->
+
+{% block content %}
+<p>Type of pizzas</p>
+<!-- объявление неупорядоченный список - bulleted-->
+  <ul> <!-- начала цикла-->							
+    {% for pizza in pizzas %}		
+       <!-- вывод значений цикла в  | <li> </li> элемент -->
+      <li>
+        <a href = "{% url 'pizzas:pizza' pizza.id %}">{{ pizza }}</a>  
+      </li>			
+       <!-- исключение если тем нету-->
+    {% empty %}	  
+      <!-- текстовка для исключения-->
+      <li>No pizza have been added yet.</li>
+    <!-- конец цикла-->
+    {% endfor %}																
+  </ul>
+{% endblock content %}

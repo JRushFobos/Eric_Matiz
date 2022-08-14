@@ -1,0 +1,24 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+  <!--Тема из шаблонной переменной {{pizza}} - она есть в list context-->
+  <p>Topping: {{pizza}}</p>  
+  
+  <p>Toppings:</p>
+  <!--обьявление списка -->
+  <ul>		
+  <!--перебор запискй-->
+  {% for topping in toppings %}	
+    <li>
+      <!--вывод аттрибута |спец фильтр -->
+      <p>{{ topping }}</p> 
+      	<!--выводится данные из столбца text | без разрывов-->
+      <p>{{ topping.text|linebreaks }}</p>	
+    </li>
+  <!--проверка на отсутствие записей-->
+  {% empty %}																
+    <li>There are no entries for this topic yet.</li>
+  {% endfor %}
+  </ul>
+
+{% endblock content %}
