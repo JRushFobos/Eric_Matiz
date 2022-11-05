@@ -1,10 +1,11 @@
-1. Создание вертуальной среды
-	python -m virtualenv ll_env
-2. Активация виртуальной среды
-	ll_env\scripts\activate	// 	ll_env\scripts\deactivate	
+I
+1. Создание вертуальной среды																	|pip freeze > requirements.txt
+	python -m virtualenv ll_env	 |bash python -m venv venv 			|pip install -r requirements.txt
+2. Активация виртуальной среды														     
+	ll_env\scripts\activate	// 	ll_env\scripts\deactivate |bash source venv/Scripts/activate	
 3. Установка Django
 	pip install django
-4. Создание проекта Django 
+4. Создание проекта Django 											
 	django-admin.exe startproject learning_log . 
 	(путь к django-admin.exe)
 5. Создание базы данных БД
@@ -45,6 +46,7 @@
 	Вывод Topics 
 	>>>from learning_logs.models import Topic
 	>>>Topic.objects.all()
+II
 17. Создание страниц: домашняя
 	Сопоставление URL
 
@@ -77,6 +79,7 @@
 	learning_log/learning_logs/templates/learning_logs/index.html
 	Шаблон в VS code + auto Close tag + auto Copmlete tag
 	shift + 1 + Tab
+III	
 20. Наследование шаблонов для других страниц. Родительский шаблон base.html
 	В папке learning_log/learning_logs/templates/learning_logs/
 	рядом с файлом index.html 
@@ -88,7 +91,7 @@
 	И блокирующим тегом для передачи информации из дочерних шаблонов
 	{% block content %}{% endblock content %}
 20. Наследование шаблонов для других страниц. Дочерний шаблон index.html
-	<!--Заменили заголовок на код родительского наблона -  текст/ссылка из base-->
+	<!--Заменили заголовок на код родительского шаблона -  текст/ссылка из base.html-->
 	{% extends "learning_logs/base.html" %}
 
 	{% block content %}
@@ -111,7 +114,7 @@
     	#Выводим список тем
     	topics = Topic.objects.order_by('date_added')
    	 	context = {'topics':topics}
-    	return render(request, 'learning_logs/topics.html', template_name)
+    	return render(request, 'learning_logs/topics.html', context)
 	]
 23. Шаблон topics.html
 	{% extends "learning_logs/base.html" %} <!-- шаблон наследуется из base
@@ -134,6 +137,7 @@
 	  <a href="{% url 'learning_log:index' %}"> Topics </a>
 	</p>
 -----Check----
+IV
 24. Схемы для тем с Id (отдельные темы)
 		например http://localhost/topics/1/
 		Добаваить  в urls.py
@@ -177,3 +181,6 @@
       <a href = "{% url 'leaning_logs:topic' topic.id %}">{{ topic }}</a>
     </li>
 	
+	Для справки topic.id - проверка темы и получить ее значение по индикатору
+							topic_id - ссылка на идентификатор
+

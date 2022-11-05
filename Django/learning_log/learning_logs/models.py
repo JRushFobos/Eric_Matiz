@@ -20,7 +20,7 @@ class Entry(models.Model):
         verbose_name_plural = 'entries'
     
     def __str__ (self):
-        #'''Возвращает строковое прдеставление модели'''
+        #'''Возвращает строковое представление модели'''
         if len(self.text)>50:
             return f'{self.text[:50]}...'
         else:
